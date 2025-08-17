@@ -6,9 +6,11 @@ import { useParams, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 
+// @typescript-eslint/no-unused-vars
 const UpdateBlog = () => {
   const router = useRouter();
   const params:any = useParams();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = React.useState<boolean>(false);
   const [formValue, setFormValue] = React.useState({
     title: "",
@@ -47,27 +49,6 @@ const UpdateBlog = () => {
     }
   };
 
-  // TODO
-  const fetchBlogById = async () => {
-    setLoading(true);
-    try {
-      const res = await axiosClientWithHeaders.get("/blog/my-blogs");
-
-      if (res.status != 200) {
-        throw new Error("Network response was not ok");
-      }
-      if (res?.data?.blogId) {
-        toast.success("Blog created successfully");
-        setFormValue({ title: "", body: "" });
-        router.push("/profile");
-      }
-    } catch (error: any) {
-      console.error("Error fetching blogs:", error);
-      toast.error(error?.response?.data?.message || "Failed to fetch blogs");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   useEffect(() => {
     if (params.blogId) {
@@ -87,7 +68,7 @@ const UpdateBlog = () => {
         }
       }
     }
-  }, []);
+  }, [params.blogId, router]);
 
   return (
     <Container>

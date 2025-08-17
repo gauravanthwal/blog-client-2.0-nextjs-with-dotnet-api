@@ -1,3 +1,4 @@
+// @typescript-eslint/no-unused-vars
 "use client";
 import Container from "@/components/common/Container";
 import { axiosClientWithHeaders } from "@/config/axiosClient";
@@ -8,6 +9,7 @@ import { toast } from "react-toastify";
 
 const AddBlog = () => {
   const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = React.useState<boolean>(false);
   const [formValue, setFormValue] = React.useState({
     title: "",

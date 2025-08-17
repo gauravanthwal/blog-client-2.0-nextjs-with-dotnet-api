@@ -1,14 +1,12 @@
-import { axiosClientWithHeaders } from "@/config/axiosClient";
 import moment from "moment";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
-import { toast } from "react-toastify";
 
 const defaultImage = "https://fastly.picsum.photos/id/666/200/300.jpg?hmac=FfmCCw-UuMgMhTLigoNVx2auMxtw-EtixqVwwxaefq0";
 
 const Card = ({ blog, isAuthor, deleteBlog }: any) => {
   const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = React.useState<boolean>(false);
   const editBlog = (id: number) => {
     router.push(`/profile/update-blog/${id}`);
@@ -17,9 +15,9 @@ const Card = ({ blog, isAuthor, deleteBlog }: any) => {
   const navigateToBlog = () =>{
     router.push(`/blog/${blog.id}`);
   }
-
   return (
     <div className="max-w-sm rounded-lg overflow-hidden shadow-xl bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+      {/* // eslint-disable-next-line @next/next/no-img-element */}
       <img
         className="w-full h-30 object-cover"
         src={blog?.image || defaultImage}

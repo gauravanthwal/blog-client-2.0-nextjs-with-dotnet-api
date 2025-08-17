@@ -1,8 +1,8 @@
 "use client";
 import { logoutUser } from "@/redux/slices/userSlice";
 import Link from "next/link";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { usePathname, useRouter } from "next/navigation";
-import path from "path";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 const Navbar = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state: any) => state.user);
-  const pathname = usePathname();
+  // const pathname = usePathname();
   const router = useRouter();
 
   const logout = () => {
