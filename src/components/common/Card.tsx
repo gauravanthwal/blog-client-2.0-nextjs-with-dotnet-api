@@ -2,7 +2,7 @@ import moment from "moment";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const defaultImage = "https://fastly.picsum.photos/id/666/200/300.jpg?hmac=FfmCCw-UuMgMhTLigoNVx2auMxtw-EtixqVwwxaefq0";
+export const defaultImage = "https://media.istockphoto.com/id/1147544806/vector/no-thumbnail-image-vector-graphic.jpg?s=170667a&w=0&k=20&c=-r15fTq303g-Do1h-F1jLdxddwkg4ZTtkdQK1XP2sFk=";
 
 const Card = ({ blog, isAuthor, deleteBlog }: any) => {
   const router = useRouter();
@@ -15,12 +15,13 @@ const Card = ({ blog, isAuthor, deleteBlog }: any) => {
   const navigateToBlog = () =>{
     router.push(`/blog/${blog.id}`);
   }
+  
   return (
     <div className="max-w-sm rounded-lg overflow-hidden shadow-xl bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
       {/* // eslint-disable-next-line @next/next/no-img-element */}
       <img
         className="w-full h-30 object-cover"
-        src={blog?.image || defaultImage}
+        src={blog?.thumbnail || defaultImage}
         alt={blog.title}
       />
       <div className="px-3 py-2 flex flex-col justify-between">
